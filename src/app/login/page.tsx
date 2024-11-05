@@ -69,7 +69,7 @@ export default function LoginPage() {
           className="mb-10"
         />
         <div className="max-w-2xl max-h-md w-full space-y-8 p-10 bg-white rounded-lg shadow">
-          <h2 className="text-center text-3xl font-loginText font-500 font-poppins">
+          <h2 className="text-center text-3xl text-loginText font-500 font-poppins">
             Inicia sesión
           </h2>
 
@@ -84,7 +84,7 @@ export default function LoginPage() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-24 font-loginText font-poppins"
+                  className="block text-24 text-loginText font-poppins"
                 >
                   E-mail
                 </label>
@@ -100,7 +100,7 @@ export default function LoginPage() {
               <div>
                 <label
                   htmlFor="password"
-                  className="block text-24 font-loginText font-poppins"
+                  className="block text-24 text-loginText font-poppins"
                 >
                   Contraseña
                 </label>
@@ -139,7 +139,7 @@ export default function LoginPage() {
               href={"#"}
               className="flex justify-end mt-2 text-forgotPassword font-poppins"
             >
-              Olvidastes la contraseña?
+              ¿Olvidastes la contraseña?
             </Link>
           </form>
         </div>
