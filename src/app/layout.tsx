@@ -11,7 +11,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Willinn",
-  description: "Prueba tecnica | Willin frontend",
+  description: "Prueba tecnica | Willinn frontend",
 };
 
 export default function RootLayout({

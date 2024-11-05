@@ -94,7 +94,7 @@ export default function LoginPage() {
                   type="email"
                   placeholder="Introduce tu email"
                   required
-                  className="block w-full text-lg font-poppins h-14 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 pr-10"
+                  className="block w-full text-lg text-loginText font-poppins placeholder:text-gray-300 h-14 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 pr-10"
                 />
               </div>
               <div>
@@ -111,7 +111,7 @@ export default function LoginPage() {
                     type={showPassword ? "text" : "password"}
                     placeholder="Introduce tu contraseña"
                     required
-                    className="block w-full text-lg font-poppins h-14 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 pr-10"
+                    className="block w-full text-lg text-loginText font-poppins placeholder:text-gray-300 h-14 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 pr-10"
                   />
                   <button
                     type="button"
@@ -139,7 +139,7 @@ export default function LoginPage() {
               href={"#"}
               className="flex justify-end mt-2 text-forgotPassword font-poppins"
             >
-              ¿Olvidastes la contraseña?
+              Olvidaste la contraseña?
             </Link>
           </form>
         </div>
