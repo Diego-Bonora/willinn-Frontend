@@ -16,6 +16,8 @@ const config: Config = {
         willinnPinkHover: "#d6207f",
         forgotPassword: "#263A66",
         loginText: "#282828",
+        tableHeaderText: "#343C6A",
+        tableContentText: "#718EBF",
       },
       fontFamily: {
         poppins: ["var(--font-poppins)", ...fontFamily.sans], // This creates a 'font-poppins' class

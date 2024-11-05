@@ -29,7 +29,7 @@ export const authOptions: AuthOptions = {
 
           if (response.ok && data) {
             return {
-              id: data.id || data.email, // Next-Auth requires an id field
+              id: data.id || data.token, // Next-Auth requires an id field
               name: data.name,
               email: credentials?.email,
               accessToken: data.token,
@@ -44,6 +44,19 @@ export const authOptions: AuthOptions = {
       },
     }),
   ],
+  callbacks: {
+    async session({ session, token }) {
+      // Attach accessToken to the session
+      session.accessToken = token.accessToken as string;
+      return session;
+    },
+    async jwt({ token, user }) {
+      if (user) {
+        token.accessToken = user.accessToken;
+      }
+      return token;
+    },
+  },
   pages: {
     signIn: "/login", // Custom login page path
   },
