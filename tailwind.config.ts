@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const { fontFamily } = require("tailwindcss/defaultTheme");
 
 const config: Config = {
   content: [
@@ -11,6 +12,13 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        willinnPink: "#F72793",
+        willinnPinkHover: "#d6207f",
+        forgotPassword: "#263A66",
+        loginText: "#282828",
+      },
+      fontFamily: {
+        poppins: ["var(--font-poppins)", ...fontFamily.sans], // This creates a 'font-poppins' class
       },
     },
   },
