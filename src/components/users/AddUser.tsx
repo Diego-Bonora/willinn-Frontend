@@ -57,22 +57,22 @@ export const AddUser = ({ onRefresh }: UserListProps) => {
         await response.json();
         switch (response.status) {
           case 409:
-            setErrorMessage("Este email ya esta registrado.");
+            setErrorMessage("Este email ya se encuentra registrado.");
             break;
           case 400:
             console.log(response);
-            setErrorMessage("Informacion invalida.");
+            setErrorMessage("Información inválida.");
             break;
           case 401:
-            setErrorMessage("Permiso denegado, intenta mas tarde.");
+            setErrorMessage("Permiso denegado, intenta más tarde.");
             break;
           default:
-            setErrorMessage("A ocurrido un error, intenta de nuevo.");
+            setErrorMessage("Ha ocurrido un error, intenta de nuevo.");
         }
       } else {
         const result = await response.json();
         console.log("User added:", result);
-        setSuccessMessage("El usuario se creo exitosamente.");
+        setSuccessMessage("El usuario se creó exitosamente.");
         onRefresh();
       }
     } catch (error) {
@@ -85,7 +85,7 @@ export const AddUser = ({ onRefresh }: UserListProps) => {
     setSuccessMessage(null);
     if (!passwordValidationRegex.test(formData.contrasena)) {
       setErrorMessage(
-        "La contraseña tiene que tener al menos 8 caracteres incluyendo al menos una mayuscula, una minuscila, un numero y un caracter especial."
+        "a contraseña debe tener al menos 8 caracteres, incluyendo al menos una mayúscula, una minúscula, un número y un carácter especial."
       );
     } else {
       handleAddUser();

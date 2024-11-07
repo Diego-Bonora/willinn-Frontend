@@ -93,24 +93,24 @@ export const EditUser = ({
           await response.json();
           switch (response.status) {
             case 409:
-              setErrorMessage("Este email ya esta registrado.");
+              setErrorMessage("Este email ya se encuentra registrado.");
               break;
             case 400:
               console.log(response);
-              setErrorMessage("Informacion invalida.");
+              setErrorMessage("Información inválida.");
               break;
             case 401:
-              setErrorMessage("Permiso denegado, intenta mas tarde.");
+              setErrorMessage("Permiso denegado, intenta más tarde.");
               break;
             default:
-              setErrorMessage("A ocurrido un error, intenta de nuevo.");
+              setErrorMessage("Ha ocurrido un error, intenta de nuevo.");
           }
         } catch (parseError) {
           console.error("Error parsing error response:", parseError);
         }
       } else {
         console.log("User edited:", userData);
-        setSuccessMessage("El usuario se cambio exitosamente.");
+        setSuccessMessage("El usuario se modificó exitosamente.");
         onRefresh();
       }
     } catch (error) {
@@ -126,7 +126,7 @@ export const EditUser = ({
       formData.contrasena != ""
     ) {
       setErrorMessage(
-        "La contraseña tiene que tener al menos 8 caracteres incluyendo al menos una mayuscula, una minuscila, un numero y un caracter especial."
+        "La contraseña debe tener al menos 8 caracteres, incluyendo al menos una mayúscula, una minúscula, un número y un carácter especial."
       );
     } else {
       handleEditUser();
