@@ -41,16 +41,11 @@ export const UserContainer = () => {
     if (session?.accessToken) {
       try {
         setIsLoading(true);
-        const fetchedUsers = await getUsers(session.accessToken);
-        setUsers(fetchedUsers);
-      } catch (error: any) {
-        console.error("Error fetching users:", error);
+        const response = await getUsers(session.accessToken);
 
-        // Check for 401 status
-        if (error.response?.status === 401) {
-          await handleAuthError();
-          return;
-        }
+        setUsers(response);
+      } catch (error) {
+        console.error("Error fetching users:", error);
       } finally {
         setIsLoading(false);
       }

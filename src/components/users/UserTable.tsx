@@ -31,7 +31,7 @@ export const UserTable = ({
           <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
             <thead>
               <tr>
-                <th colSpan={3} className="p-5">
+                <th colSpan={3} className="p-2">
                   <div className="flex justify-between items-center w-full">
                     <h1 className="text-tableHeaderText text-2xl">Usuarios</h1>
                     <div className="relative flex items-center mt-1 rounded-2xl bg-[#F5F7FA] h-12">

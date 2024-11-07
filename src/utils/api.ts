@@ -1,3 +1,4 @@
+import { signOut } from "next-auth/react";
 export interface User {
   id: number;
   name: string;
@@ -21,9 +22,16 @@ export const getUsers = async (token: string): Promise<User[]> => {
       },
     }).then((resp) => resp.json());
 
+    if (!users.ok) {
+      if (users.status === 401) {
+        window.alert("Tu sesion a expirado, inicia secion de nuevo.");
+        await signOut();
+      }
+    }
+
     return users;
-  } catch {
-    console.log("hubo un error al traer los usuarios");
+  } catch (error) {
+    console.log("hubo un error al traer los usuarios", error);
     return [];
   }
 };
@@ -66,12 +74,6 @@ export const editUser = async (
         body: JSON.stringify(userData),
       }
     );
-
-    console.log("------------------");
-
-    console.log(response);
-
-    console.log("------------------");
 
     return response;
   } catch (error) {
