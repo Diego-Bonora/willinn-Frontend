@@ -14,7 +14,7 @@ export const UserContainer = () => {
   const [editUserInfo, setEditUserInfo] = useState<User | undefined>(undefined);
   const [isEditing, setIsEditing] = useState(false);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const itemsPerPage = 6;
+  const itemsPerPage = 5;
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -75,8 +75,8 @@ export const UserContainer = () => {
           <Loader2 className="w-12 h-12 animate-spin text-willinnPink" />
         </div>
       ) : (
-        <div className="flex flex-col mt-10 ">
-          <div className="flex min-h-[650px]">
+        <div className="flex flex-col mt-2 ">
+          <div className="flex min-h-[550px]">
             <UserTable
               token={session?.accessToken ? session.accessToken : ""}
               paginatedUsers={paginatedUsers}
