@@ -6,6 +6,14 @@ The project is also deployed on Vercel. You can access it [here](https://willinn
 
 ## Getting Started
 
+### Requirements
+
+To run this project, you will need the following:
+
+- **Node.JS**: Version 16.8 or higher
+- **npm**: Package manager for Node.js. It comes bundled with Node.js.
+- **Docker**: (Optional, for containerization): If you're using Docker to run the project in a containerized environment.
+
 ### Clone the Repository
 
 To get started, first clone the repository:
