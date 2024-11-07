@@ -93,7 +93,7 @@ export const AddUser = ({ onRefresh }: UserListProps) => {
   };
 
   return (
-    <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md m-2 min-h-full">
+    <div className="w-full max-w-md p-6 bg-white rounded-2xl shadow-md m-2 min-h-full">
       <h2 className="text-xl font-semibold mb-6">Agregar usuario</h2>
 
       {errorMessage && (

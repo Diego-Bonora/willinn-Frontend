@@ -17,7 +17,7 @@ export const Pagination = ({
   handleNextPage,
 }: UserListProps) => {
   return (
-    <div className="flex justify-between items-center mt-4 mx-auto min-w-[60%]">
+    <div className="flex justify-between items-center mt-2 mx-auto min-w-[60%]">
       <button
         onClick={handlePreviousPage}
         disabled={currentPage === 1}

@@ -124,7 +124,7 @@ export const EditUser = ({
   };
 
   return (
-    <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md  m-2 min-h-full">
+    <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-2xl  m-2 min-h-full">
       <div className="flex justify-between items-center text-xl font-semibold mb-6">
         <h2>Editar usuario</h2>
         <button className="text-purple-600" onClick={handleGoBack}>

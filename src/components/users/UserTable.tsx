@@ -27,7 +27,7 @@ export const UserTable = ({
   return (
     <>
       <div className="m-2 w-full flex flex-col min-h-full">
-        <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md w-full h-full">
+        <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-md w-full h-full">
           <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
             <thead>
               <tr>
