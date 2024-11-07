@@ -60,12 +60,23 @@ export const EditUser = ({
   };
 
   const handleEditUser = async () => {
-    const userData: UserData = {
-      name: `${formData.nombre} ${formData.apellido}`,
-      email: formData.email,
-      password: formData.contrasena,
-      isActive: formData.isActive,
-    };
+    const userData: UserData = {};
+    if (editUserInfo) {
+      const [nombre, apellido] = editUserInfo.name.split(" ");
+
+      if (formData.nombre || formData.apellido) {
+        userData.name = `${formData.nombre || nombre || ""} ${
+          formData.apellido || apellido || ""
+        }`;
+      }
+    }
+    if (formData.email) {
+      userData.email = formData.email;
+    }
+
+    if (formData.contrasena) {
+      userData.password = formData.contrasena;
+    }
     try {
       if (!session?.accessToken || !editUserInfo?.id) {
         throw new Error("Unauthorized");
@@ -110,7 +121,10 @@ export const EditUser = ({
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSuccessMessage(null);
-    if (!passwordValidationRegex.test(formData.contrasena)) {
+    if (
+      !passwordValidationRegex.test(formData.contrasena) &&
+      formData.contrasena != ""
+    ) {
       setErrorMessage(
         "La contraseña tiene que tener al menos 8 caracteres incluyendo al menos una mayuscula, una minuscila, un numero y un caracter especial."
       );
@@ -154,7 +168,6 @@ export const EditUser = ({
             name="nombre"
             value={formData.nombre}
             onChange={handleChange}
-            required
             placeholder="Introduce el nombre"
             className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none"
           />
@@ -173,7 +186,6 @@ export const EditUser = ({
             name="apellido"
             value={formData.apellido}
             onChange={handleChange}
-            required
             placeholder="Introduce el apellido"
             className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none"
           />
@@ -192,7 +204,6 @@ export const EditUser = ({
             name="email"
             value={formData.email}
             onChange={handleChange}
-            required
             placeholder="Introduce tu E-mail"
             className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none"
           />
@@ -211,7 +222,6 @@ export const EditUser = ({
             name="contrasena"
             value={formData.contrasena}
             onChange={handleChange}
-            required
             placeholder="Introduce tu contraseña"
             className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none"
           />

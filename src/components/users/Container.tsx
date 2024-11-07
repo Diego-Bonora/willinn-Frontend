@@ -32,11 +32,6 @@ export const UserContainer = () => {
     }
   };
 
-  const handleAuthError = async () => {
-    window.alert("Tu sesion a expirado, inicia secion de nuevo.");
-    await signOut({ redirect: true, callbackUrl: "/signin" });
-  };
-
   const fetchUsers = async () => {
     if (session?.accessToken) {
       try {
@@ -65,38 +60,38 @@ export const UserContainer = () => {
 
   return (
     <>
-      {isLoading ? (
-        <div className="flex items-center justify-center w-full h-full">
-          <Loader2 className="w-12 h-12 animate-spin text-willinnPink" />
-        </div>
-      ) : (
-        <div className="flex flex-col mt-2 ">
-          <div className="flex min-h-[550px]">
+      <div className="flex flex-col mt-2 ">
+        <div className="flex min-h-[550px]">
+          {isLoading ? (
+            <div className="flex items-center justify-center w-full h-full">
+              <Loader2 className="w-12 h-12 animate-spin text-willinnPink" />
+            </div>
+          ) : (
             <UserTable
               token={session?.accessToken ? session.accessToken : ""}
               paginatedUsers={paginatedUsers}
               onRefresh={fetchUsers}
               handleEditUserState={handleEditUserState}
             />
-            {isEditing ? (
-              <EditUser
-                onRefresh={fetchUsers}
-                setIsEditing={setIsEditing}
-                editUserInfo={editUserInfo}
-              />
-            ) : (
-              <AddUser onRefresh={fetchUsers} />
-            )}
-          </div>
-          <Pagination
-            users={users}
-            currentPage={currentPage}
-            itemsPerPage={itemsPerPage}
-            handlePreviousPage={handlePreviousPage}
-            handleNextPage={handleNextPage}
-          />
+          )}
+          {isEditing ? (
+            <EditUser
+              onRefresh={fetchUsers}
+              setIsEditing={setIsEditing}
+              editUserInfo={editUserInfo}
+            />
+          ) : (
+            <AddUser onRefresh={fetchUsers} />
+          )}
         </div>
-      )}
+        <Pagination
+          users={users}
+          currentPage={currentPage}
+          itemsPerPage={itemsPerPage}
+          handlePreviousPage={handlePreviousPage}
+          handleNextPage={handleNextPage}
+        />
+      </div>
     </>
   );
 };

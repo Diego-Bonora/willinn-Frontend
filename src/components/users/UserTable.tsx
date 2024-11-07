@@ -28,7 +28,7 @@ export const UserTable = ({
     <>
       <div className="m-2 w-full flex flex-col min-h-full">
         <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-md w-full h-full">
-          <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
+          <table className="w-full table-fixed border-collapse bg-white text-left text-sm text-gray-500">
             <thead>
               <tr>
                 <th colSpan={3} className="p-2">
@@ -50,34 +50,37 @@ export const UserTable = ({
               <tr className="divide-y divide-gray-100 border-t border-gray-100">
                 <th
                   scope="col"
-                  className="px-6 py-4 text-lg text-tableHeaderText"
+                  className="px-6 py-4 max-w-fit text-lg text-tableHeaderText"
                 >
                   Nombre
                 </th>
                 <th
                   scope="col"
-                  className="px-6 py-4 text-lg text-tableHeaderText"
+                  className="px-6 py-4  text-lg text-tableHeaderText"
                 >
                   Correo
                 </th>
-                <th></th>
+                <th
+                  scope="col"
+                  className="px-6 py-4  text-lg text-tableHeaderText"
+                ></th>
               </tr>
             </thead>
 
             <tbody className="divide-y divide-gray-100 border-t border-gray-100">
               {paginatedUsers.map((user) => (
                 <tr key={user.id} className="hover:bg-gray-50">
-                  <td className=" py-4 px-6 w-1/2">
+                  <td className=" py-4 px-6">
                     <div className="text-md text-tableContentText">
                       {user.name}
                     </div>
                   </td>
 
-                  <td className="py-4 px-6 text-md text-tableContentText w-1/2">
+                  <td className="py-4 px-6 text-md text-tableContentText">
                     <span>{user.email}</span>
                   </td>
 
-                  <td className="py-4 px-6 flex justify-end items-center space-x-2 group h-[77px] w-[120px]">
+                  <td className="py-4 px-6 flex justify-end items-center space-x-2 group h-[77px] ">
                     <div className="hidden group-hover:flex items-center space-x-2 px-4 py-2 rounded-full bg-gray-100   transition">
                       <button onClick={() => handleDelete(user.id)}>
                         <svg

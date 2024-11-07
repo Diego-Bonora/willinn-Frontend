@@ -8,10 +8,10 @@ export interface User {
 }
 
 export interface UserData {
-  name: string;
-  email: string;
-  password: string;
-  isActive: boolean;
+  name?: string;
+  email?: string;
+  password?: string;
+  isActive?: boolean;
 }
 
 export const getUsers = async (token: string): Promise<User[]> => {
