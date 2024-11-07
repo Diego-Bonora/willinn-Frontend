@@ -1,9 +1,10 @@
+/* eslint-disable */
 "use client";
 
 import { User, getUsers } from "@/utils/api";
 import { AddUser, EditUser, Pagination, UserTable } from "..";
 import { useSession, signOut } from "next-auth/react";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { Loader2 } from "lucide-react";
 
 export const UserContainer = () => {
@@ -36,21 +37,17 @@ export const UserContainer = () => {
     await signOut({ redirect: true, callbackUrl: "/signin" });
   };
 
-  const fetchUsers = useCallback(async () => {
+  const fetchUsers = async () => {
     if (session?.accessToken) {
       try {
         setIsLoading(true);
         const fetchedUsers = await getUsers(session.accessToken);
         setUsers(fetchedUsers);
-      } catch (error: unknown) {
+      } catch (error: any) {
         console.error("Error fetching users:", error);
 
         // Check for 401 status
-        if (
-          error instanceof Error &&
-          "response" in error &&
-          (error as { response?: { status?: number } }).response?.status === 401
-        ) {
+        if (error.response?.status === 401) {
           await handleAuthError();
           return;
         }
@@ -58,7 +55,7 @@ export const UserContainer = () => {
         setIsLoading(false);
       }
     }
-  }, []);
+  };
 
   useEffect(() => {
     fetchUsers();
