@@ -2,16 +2,22 @@
 import { useSession, signOut } from "next-auth/react";
 
 export const LogoutButton = () => {
-  const { data: session, status } = useSession();
+  const sessionData = useSession();
+  const status = sessionData.status;
 
   if (status === "loading") {
-    return <h1>Cargando, no te apures</h1>;
+    return;
   }
 
   return (
     <>
-      <div>
-        <button onClick={() => signOut()}>SingOut {session?.user?.name}</button>
+      <div className="mt-auto p-10">
+        <button
+          onClick={() => signOut()}
+          className="py-2 px-10 bg-purple-600 hover:bg-purple-700 text-white text-3xl font-medium rounded-md transition-colors duration-200"
+        >
+          Salir
+        </button>
       </div>
     </>
   );

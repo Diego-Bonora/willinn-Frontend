@@ -9,5 +9,5 @@ export default async function Home() {
     redirect("/api/auth/signin");
   }
 
-  redirect("/dashboard/main");
+  redirect("/dashboard/users");
 }

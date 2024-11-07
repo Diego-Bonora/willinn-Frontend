@@ -1,10 +1,11 @@
 import { SidebarMenuItem } from "./SidebarMenuItem";
 import { homeIconPath, userIconPath } from "@/const/Const";
 import Image from "next/image";
+import { LogoutButton } from "..";
 
 const menuItems = [
   {
-    path: "/dashboard/main",
+    path: "#",
     icon: homeIconPath,
     title: "Inicio",
   },
@@ -30,6 +31,7 @@ export const Sidebar = () => {
           <SidebarMenuItem key={item.path} {...item} />
         ))}
       </div>
+      <LogoutButton />
     </div>
   );
 };
